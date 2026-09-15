@@ -1,0 +1,47 @@
+{
+    "executors": [
+        {
+            "id": 1,
+            "name": "Иванов Иван",
+            "position": "Разработчик",
+            "contacts": "ivanov@example.com"
+        },
+        {
+            "id": 2,
+            "name": "Петров Пётр",
+            "position": "Аналитик",
+            "contacts": "petrov@example.com"
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Настроить тестовый сервер",
+            "description": "Развернуть стенд для тестирования",
+            "executor_id": 1,
+            "regulation_id": 1,
+            "due_date": "2026-09-20",
+            "created_date": "2026-09-15",
+            "status": "active",
+            "archived": false
+        },
+        {
+            "id": 2,
+            "title": "Описать регламент тестирования",
+            "description": "",
+            "executor_id": 2,
+            "regulation_id": null,
+            "due_date": "2026-09-25",
+            "created_date": "2026-09-15",
+            "status": "in_progress",
+            "archived": false
+        }
+    ],
+    "regulations": [
+        {
+            "id": 1,
+            "name": "Регламент разработки",
+            "description": "Стандарты написания и проверки кода"
+        }
+    ]
+}

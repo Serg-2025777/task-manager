@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Управление задачами</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="top-bar">
+        <h1>Управление задачами</h1>
+        <div class="header-actions">
+            <button class="btn btn-outline" id="importBtn">Импорт CSV</button>
+            <button class="btn btn-outline" id="exportBtn">Экспорт JSON</button>
+            <input type="file" id="importFile" accept=".csv,.json" style="display:none" />
+        </div>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab active" data-tab="tasks">Задачи</button>
+        <button class="tab" data-tab="executors">Исполнители</button>
+        <button class="tab" data-tab="regulations">Регламенты</button>
+    </nav>
+
+    <main class="content">
+        <section id="tab-tasks" class="tab-panel active">
+            <div class="toolbar">
+                <input type="search" id="tasksSearch" placeholder="Поиск..." autocomplete="off" />
+                <select id="taskFilterExecutor">
+                    <option value="">Все исполнители</option>
+                </select>
+                <select id="taskFilterStatus">
+                    <option value="">Все статусы</option>
+                    <option value="active">Активно</option>
+                    <option value="in_progress">В работе</option>
+                    <option value="done">Выполнено</option>
+                    <option value="cancelled">Отменено</option>
+                </select>
+                <label class="checkbox-label"><input type="checkbox" id="taskShowArchived" /> Показывать архив</label>
+                <button class="btn btn-primary" data-add="tasks">+ Добавить задачу</button>
+            </div>
+            <div class="table-wrap">
+                <table id="table-tasks">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tab-executors" class="tab-panel">
+            <div class="toolbar">
+                <input type="search" id="executorsSearch" placeholder="Поиск..." autocomplete="off" />
+                <button class="btn btn-primary" data-add="executors">+ Добавить исполнителя</button>
+            </div>
+            <div class="table-wrap">
+                <table id="table-executors">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tab-regulations" class="tab-panel">
+            <div class="toolbar">
+                <input type="search" id="regulationsSearch" placeholder="Поиск..." autocomplete="off" />
+                <button class="btn btn-primary" data-add="regulations">+ Добавить регламент</button>
+            </div>
+            <div class="table-wrap">
+                <table id="table-regulations">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3 id="modalTitle">Редактирование</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" id="modalDelete" style="display:none">Удалить</button>
+                <div style="flex:1"></div>
+                <button class="btn btn-outline" id="modalCancel">Отмена</button>
+                <button class="btn btn-primary" id="modalSave">Сохранить</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
