@@ -8,7 +8,7 @@ export const SCHEMAS = {
             { key: 'executor_id', label: 'Исполнитель', type: 'select', source: 'executors' },
             { key: 'regulation_id', label: 'Регламент', type: 'select', source: 'regulations' },
             { key: 'due_date', label: 'Срок выполнения', type: 'date' },
-            { key: 'created_date', label: 'Дата постановки', type: 'date' },
+            { key: 'created_date', label: 'Дата начала', type: 'date' },
             {
                 key: 'status', label: 'Статус', type: 'select', options: [
                     { value: 'active', label: 'Активно' },
@@ -24,7 +24,7 @@ export const SCHEMAS = {
             { key: 'executor_id', label: 'Исполнитель', resolve: 'executors' },
             { key: 'regulation_id', label: 'Регламент', resolve: 'regulations' },
             { key: 'due_date', label: 'Срок выполнения', type: 'date' },
-            { key: 'created_date', label: 'Дата постановки', type: 'date' },
+            { key: 'created_date', label: 'Дата начала', type: 'date' },
             { key: 'status', label: 'Статус', type: 'badge' },
         ],
     },
