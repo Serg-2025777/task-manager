@@ -22,18 +22,29 @@
       "regulation_id": 1,
       "due_date": "2026-09-20",
       "created_date": "2026-09-15",
-      "status": "cancelled",
+      "status": "active",
+      "archived": false
+    },
+    {
+      "id": 2,
+      "title": "Описать регламент тестирования",
+      "description": "",
+      "executor_id": 2,
+      "regulation_id": null,
+      "due_date": "2026-09-25",
+      "created_date": "2026-09-15",
+      "status": "in_progress",
       "archived": false
     },
     {
       "title": "readsszzzz",
-      "description": "sss s паорпол",
-      "executor_id": 2,
-      "regulation_id": 1,
+      "description": "sss s",
+      "executor_id": null,
+      "regulation_id": null,
       "due_date": "",
       "created_date": "2026-09-15",
       "status": "active",
-      "archived": true,
+      "archived": false,
       "id": 3
     }
   ],
