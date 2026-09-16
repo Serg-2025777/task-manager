@@ -129,8 +129,8 @@ body {
     font-weight: 500;
     transition: background .15s;
 }
-git push
-.btn-primary {
+
+git push .btn-primary {
     background: var(--primary);
     color: #fff;
 }
@@ -141,7 +141,7 @@ git push
 
 .btn-outline {
     background: transparent;
-    color: #ffffffe3;
+    color: red;
     border: 1px solid #475569;
 }
 
