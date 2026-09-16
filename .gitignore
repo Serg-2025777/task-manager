@@ -11,5 +11,4 @@ Thumbs.db
 .idea/
 
 # Данные (по желанию — раскомментируй, чтобы не пушить базу)
-log
- data.json
+log data.json
