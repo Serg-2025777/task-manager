@@ -141,7 +141,7 @@ git push .btn-primary {
 
 .btn-outline {
     background: transparent;
-    color: red;
+    color: #fff;
     border: 1px solid #475569;
 }
 
@@ -363,4 +363,21 @@ textarea.form-input {
     color: var(--text-muted);
     padding: 40px;
     font-size: 14px;
+}
+
+.btn-cancel {
+    background: transparent;
+    color: var(--text);
+    /* тёмно‑серый, как основной текст */
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 6px;
+}
+
+.btn-cancel:hover {
+    background: #f3f4f6;
+    /* цвет фона body */
+    color: var(--danger);
+    /* красный при наведении */
+    border-color: var(--border);
 }
