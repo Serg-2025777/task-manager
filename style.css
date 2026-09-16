@@ -381,3 +381,20 @@ textarea.form-input {
     /* красный при наведении */
     border-color: var(--border);
 }
+
+.btn-done {
+    padding: 4px 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #166534;
+    line-height: 1;
+}
+
+.btn-done:hover {
+    background: #dcfce7;
+    border-color: #166534;
+    color: #14532d;
+}

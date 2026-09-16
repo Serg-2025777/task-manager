@@ -23,7 +23,16 @@ const deleteEntity = (type, id) => {
     renderAll(db);
 };
 
-export { deleteEntity };
+const completeTask = (id) => {
+    const task = db.tasks.find(t => t.id === id);
+    if (!task) return;
+    task.status = 'done';
+    task.archived = true;
+    scheduleSave();
+    renderAll(db);
+};
+
+export { deleteEntity, completeTask };
 
 // Обработчик для кнопок "Добавить"
 const initAddButtons = () => {

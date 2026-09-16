@@ -2,7 +2,7 @@
 import { SCHEMAS, STATUS_LABELS } from './schemas.js';
 import { escapeHtml, formatDate, resolveName } from './utils.js';
 import { openModal } from './modal.js';
-import { deleteEntity } from './app.js';
+import { deleteEntity, completeTask } from './app.js';
 
 export const populateFilterExecutors = (db) => {
     const sel = document.getElementById('taskFilterExecutor');
@@ -24,7 +24,8 @@ export const renderTable = (db, type) => {
     const tbody = table.querySelector('tbody');
 
     const cols = schema.columns;
-    thead.innerHTML = '<tr>' + cols.map(c => `<th>${c.label}</th>`).join('') + '<th style="width:40px"></th></tr>';
+    thead.innerHTML = '<tr>' + cols.map(c => `<th>${c.label}</th>`).join('') + '<th style="width:80px"></th></tr>';
+
 
     // Фильтрация
     let rows = [...db[type]];
@@ -79,15 +80,33 @@ export const renderTable = (db, type) => {
             tr.appendChild(td);
         });
 
-        const tdDel = document.createElement('td');
-        tdDel.innerHTML = '<button class="btn-icon" title="Удалить">✕</button>';
-        tdDel.querySelector('button').addEventListener('click', (e) => {
+        const tdActions = document.createElement('td');
+        tdActions.style.cssText = 'white-space:nowrap; text-align:right; display:flex; gap:4px';
+
+        if (type === 'tasks' && !item.archived) {
+            const btnDone = document.createElement('button');
+            btnDone.className = 'btn-done';
+            btnDone.title = 'Выполнить и перенести в архив';
+            btnDone.textContent = '✓';
+            btnDone.addEventListener('click', (e) => {
+                e.stopPropagation();
+                completeTask(item.id);
+            });
+            tdActions.appendChild(btnDone);
+        }
+
+        const btnDel = document.createElement('button');
+        btnDel.className = 'btn-icon';
+        btnDel.title = 'Удалить';
+        btnDel.textContent = '✕';
+        btnDel.addEventListener('click', (e) => {
             e.stopPropagation();
             if (confirm(`Удалить "${item.name || item.title}"?`)) {
                 deleteEntity(type, item.id);
             }
         });
-        tr.appendChild(tdDel);
+        tdActions.appendChild(btnDel);
+        tr.appendChild(tdActions);
 
         tbody.appendChild(tr);
     });
